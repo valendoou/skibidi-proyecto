@@ -33,7 +33,7 @@ const stylesInfo = StyleSheet.create({
   },
   infoSection: {
     padding: 20,
-    backgroundColor: '#444', // Fondo de la sección de texto
+    backgroundColor: '#444', // Fondo del texto
     borderRadius: 10,
     margin: 10,
   },
@@ -45,7 +45,7 @@ const stylesInfo = StyleSheet.create({
   },
   text: {
     fontSize: 16,
-    color: '#FFF', // Texto en blanco
+    color: '#FFF', // Color de texto blanco
     marginBottom: 10,
   },
 });

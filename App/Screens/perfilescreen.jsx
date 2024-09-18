@@ -11,7 +11,7 @@ export default function ProfileScreen() {
     fechaNacimiento: "2006-05-13",
     sexo: "Masculino",
     numeroDocumento: "47.285.025",
-    foto: "https://via.placeholder.com/300x200" // Foto de ejemplo
+    foto: ImagenPersona// Foto de ejemplo
   });
 
   return (
@@ -44,7 +44,7 @@ export default function ProfileScreen() {
 const stylesProfiles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#333', // Color de fondo similar al diseño
+    backgroundColor: '#333', // Color de fondo
     padding: 10,
   },
   imageContainer: {
@@ -63,14 +63,14 @@ const stylesProfiles = StyleSheet.create({
   },
   detailsContainer: {
     flex: 3,
-    backgroundColor: '#222', // Fondo para el cuadro de texto
+    backgroundColor: '#222', // Fondo para el texto
     padding: 15,
     borderRadius: 10,
   },
   label: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#FFD700', // Color de texto similar (dorado)
+    color: '#FFD700', // Color de texto dorado parecido al del boceto
     marginBottom: 5,
   },
   value: {
