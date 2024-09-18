@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, ScrollView, Image } from 'react-native';
 import { initializeApp } from '@firebase/app';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from '@firebase/auth';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
 
 
 const firebaseConfig = {
@@ -14,6 +16,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+const Drawer = createDrawerNavigator();
 
 const AuthScreen = ({ email, setEmail, password, setPassword, isLogin, setIsLogin, handleAuthentication }) => {
   return (
@@ -50,11 +53,32 @@ const AuthScreen = ({ email, setEmail, password, setPassword, isLogin, setIsLogi
 
 const AuthenticatedScreen = ({ user, handleAuthentication }) => {
   return (
-    <View style={styles.authContainer}>
-      <Text style={styles.title}>Welcome</Text>
-      <Text style={styles.emailText}>{user.email}</Text>
-      <Button title="Logout" onPress={handleAuthentication} color="#e74c3c" />
-    </View>
+      <NavigationContainer>
+      <Drawer.Navigator
+  
+      screenOptions={{
+        statusBarColor: '#173187',
+        headerStyle:{
+          backgroundColor: '#173187',
+        },
+        headerTintColor: '#fff',
+        headerTitleAlign: 'center',
+        drawerActiveTintColor: '#fff',
+        drawerInactiveTintColor: '#34495E',
+        drawerActiveBackgroundColor: '#173187',
+      }}>
+        <Drawer.Screen name="Mapa" component={MapPage} options={{
+          drawerLabel: 'Mapa',
+          headerTitle: 'Mapa',
+          drawerIcon: ({size, color}) => ( <Fontisto name="map" size={24} color="black" /> ),
+        }} />
+        <Drawer.Screen name="Barrios" component={BarriosPage} options={{
+           drawerLabel: 'Reportes',
+           headerTitle: 'Reportes',
+           drawerIcon: ({size, color}) => ( <Ionicons name="warning" size={24} color="black" /> ),
+        }} />
+      </Drawer.Navigator>
+    </NavigationContainer>
   );
 };
 export default App = () => {
