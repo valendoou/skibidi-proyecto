@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 
 const ImagenPersona = require('../../assets/FotoEjemplo.jpg');
 
-export default function App() {
+export default function ProfileScreen() {
   // Datos estáticos para la persona, aca estaria la api
   const [dniData] = useState({
     nombre: "Mateo",
@@ -15,33 +15,33 @@ export default function App() {
   });
 
   return (
-    <View style={styles.container}>
+    <View style={stylesProfiles.container}>
       {/* Imagen y Documento de Identidad */}
-      <View style={styles.imageContainer}>
+      <View style={stylesProfiles.imageContainer}>
         <Image
           source={{ uri: dniData.foto }} // Foto de ejemplo
-          style={styles.image}
+          style={stylesProfiles.image}
           resizeMode="contain"
         />
       </View>
 
       {/* Detalles del DNI */}
-      <ScrollView style={styles.detailsContainer}>
-        <Text style={styles.label}>DNI</Text>
-        <Text style={styles.label}>NOMBRE:</Text>
-        <Text style={styles.value}>{dniData.nombre} {dniData.apellido}</Text>
-        <Text style={styles.label}>FECHA DE NACIMIENTO:</Text>
-        <Text style={styles.value}>{dniData.fechaNacimiento}</Text>
-        <Text style={styles.label}>SEXO:</Text>
-        <Text style={styles.value}>{dniData.sexo}</Text>
-        <Text style={styles.label}>NÚMERO DE DOCUMENTO:</Text>
-        <Text style={styles.value}>{dniData.numeroDocumento}</Text>
+      <ScrollView style={stylesProfiles.detailsContainer}>
+        <Text style={stylesProfiles.label}>DNI</Text>
+        <Text style={stylesProfiles.label}>NOMBRE:</Text>
+        <Text style={stylesProfiles.value}>{dniData.nombre} {dniData.apellido}</Text>
+        <Text style={stylesProfiles.label}>FECHA DE NACIMIENTO:</Text>
+        <Text style={stylesProfiles.value}>{dniData.fechaNacimiento}</Text>
+        <Text style={stylesProfiles.label}>SEXO:</Text>
+        <Text style={stylesProfiles.value}>{dniData.sexo}</Text>
+        <Text style={stylesProfiles.label}>NÚMERO DE DOCUMENTO:</Text>
+        <Text style={stylesProfiles.value}>{dniData.numeroDocumento}</Text>
       </ScrollView>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
+const stylesProfiles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#333', // Color de fondo similar al diseño
