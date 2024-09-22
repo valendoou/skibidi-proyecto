@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text } from 'react-native';
+import React from 'react';
+import { View } from 'react-native';
 import { initializeApp } from '@firebase/app';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from '@firebase/auth';
 import { NavigationContainer } from '@react-navigation/native';
@@ -56,7 +56,7 @@ export default app = () => {
 
   return (
     <NavigationContainer>
-      {user ? (
+      /{user ? (
         <AuthenticatedScreen handleSignOut={handleSignOut} />
       ) : (
         <AuthStack
