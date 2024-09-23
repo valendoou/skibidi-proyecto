@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   },
   sidebar: {
     width: '25%', // Ancho de la barra lateral
-    backgroundColor: '#1a1a1a', // Fondo oscuro para la barra lateral
+    backgroundColor: '#000', // Fondo oscuro para la barra lateral
     padding: 20,
   },
   logoText: {
