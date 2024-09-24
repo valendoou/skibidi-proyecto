@@ -75,7 +75,7 @@ export default app = () => {
 import 'react-native-gesture-handler';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import InfoScreen from './App/Components/Screens/helpscreen';
-import ProfileScreen from './App/Components/Screens/perfilescreen';
+//import ProfileScreen from './App/Components/Screens/profilescreen';
 import HomeScreen from './App/Components/Screens/homescreen';
 
 const Drawer = createDrawerNavigator();
