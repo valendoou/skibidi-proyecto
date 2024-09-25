@@ -1,4 +1,17 @@
-/*import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
+
+import React, { useState, useEffect } from 'react';
+import { View, Text } from 'react-native';
 import { initializeApp } from '@firebase/app';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from '@firebase/auth';
 import { NavigationContainer } from '@react-navigation/native';
@@ -50,12 +63,12 @@ export default app = () => {
       await signOut(auth);
     } catch (error) {
       console.error('Sign-out error:', error.message);
-    } 
+    }
   };
 
   return (
     <NavigationContainer>
-      {user ? (
+      /{user ? (
         <AuthenticatedScreen handleSignOut={handleSignOut} />
       ) : (
         <AuthStack
@@ -70,24 +83,4 @@ export default app = () => {
       )}
     </NavigationContainer>
   );
-}*/
-
-import 'react-native-gesture-handler';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import InfoScreen from './App/Components/Screens/helpscreen';
-//import ProfileScreen from './App/Components/Screens/profilescreen';
-import HomeScreen from './App/Components/Screens/homescreen';
-
-const Drawer = createDrawerNavigator();
-
-export default app = () => {
- return(
-    <Drawer.Navigator>
-        <Drawer.Screen name='Ayuda' component={InfoScreen}/>
-        <Drawer.Screen name='Perfiles' component={HomeScreen}/>
-    </Drawer.Navigator>
-  );
 }
-
-
-
