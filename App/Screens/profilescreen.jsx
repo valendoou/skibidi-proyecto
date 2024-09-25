@@ -35,7 +35,7 @@ export default function ProfileScreen() {
         {/* Imagen de Dni */}
         <View style={stylesProfiles.imageContainer}>
           <Image
-            source={{ uri: dniData.foto }} // Foto de ejemplo
+            source={{ uri: dniData.foto }} // Foto de ejemplo        
             style={stylesProfiles.image}
             resizeMode="contain"
           />
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row', // División en barra lateral y contenido
   },
   sidebar: {
-    width: '25%', // Ancho de la barra lateral
+    width: '15%', // Ancho de la barra lateral
     backgroundColor: '#000', // Fondo oscuro para la barra lateral
     padding: 20,
   },

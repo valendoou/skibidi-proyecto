@@ -39,7 +39,7 @@ export default function HelpScreen({ navigation }) {
         <View style={styles.infoSection}>
           <Text style={styles.title}>¿Cómo usar la aplicación?</Text>
           <Text style={styles.text}>
-            Cuando te enfrentas a una situación en la que tu seguridad está comprometida como un intento de robo, acoso, agresión o cualquier otra amenaza—, simplemente presiona el botón de pánico. Al hacerlo, la aplicación:
+            Cuando te enfrentas a una situación en la que tu seguridad está comprometida como un intento de robo, acoso, agresión o cualquier otra amenaza , simplemente presiona el botón de pánico. Al hacerlo, la aplicación:
             Envía una alerta instantánea a la policía local: La aplicación está conectada directamente con los servicios de emergencia, enviando una señal de alerta con tu ubicación en tiempo real. Esto asegura que las autoridades sepan exactamente dónde te encuentras y puedan intervenir de inmediato.
           </Text>
 
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
   
   // Estilos para la barra lateral
   sidebar: {
-    width: '25%', // Ocupa el 25% del ancho de la pantalla
+    width: '15%', // Ocupa el 25% del ancho de la pantalla
     backgroundColor: '#000',
     padding: 20,
   },
