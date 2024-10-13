@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import CustomDrawer from './customDrawer';
+import CustomDrawer from './CustomDrawer';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import HomeScreen from './Screen/Home';
 import OptionScreen from './Screen/Option';
