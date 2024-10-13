@@ -1,60 +1,87 @@
-// Importa los módulos necesarios
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet } from 'react-native';
+import axios from 'axios';
 
-// Pantalla para mostrar los detalles del ciudadano
-const DetailsScreen = ({ route }) => {
-  const { dni, usuario, clave } = route.params;
-  const [resultado, setResultado] = useState(null);
-  const [error, setError] = useState('');
+const ProfileScreen = ({ route }) => {
+  const { dni } = route.params;
+  const [profileData, setProfileData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const obtenerDatos = async () => {
+    const fetchData = async () => {
       try {
-        const response = await fetch(
-          `https://sisa.msal.gov.ar/sisa/services/rest/cmdb/obtener?nrodoc=${dni}&usuario=${usuario}&clave=${clave}`
-        );
-
-        if (!response.ok) {
-          throw new Error('Error en la respuesta del servidor');
-        }
-
-        const data = await response.json();
-        
-        if (data.resultado === 'OK') {
-          setResultado(data);
-        } else {
-          setError('Persona no encontrada o error en los datos');
-        }
+        const response = await axios.get(`https://sisa.msal.gov.ar/sisa/services/rest/cmdb/obtener?nrodoc=${dni}&usuario=&clave=`);
+        setProfileData(response.data);
       } catch (error) {
-        setError(error.message);
+        console.error(error);
+      } finally {
+        setLoading(false);
       }
     };
 
-    obtenerDatos();
-  }, [dni, usuario, clave]);
+    fetchData();
+  }, [dni]);
+
+  if (loading) {
+    return <Text>Cargando...</Text>;
+  }
+
+  if (!profileData) {
+    return <Text>No se encontró información para el DNI ingresado.</Text>;
+  }
 
   return (
     <View style={stylesProfiles.detailsContainer}>
-      {resultado ? (
-        <>
-          <View style={stylesProfiles.imageContainer}>
-            {/* Aquí puedes agregar una imagen del ciudadano si la tienes */}
-            <Text style={stylesProfiles.value}>
-              {`Nombre: ${resultado.nombre} ${resultado.apellido}\nDNI: ${resultado.nroDocumento}`}
-            </Text>
-          </View>
-          <Text style={stylesProfiles.label}>Detalles:</Text>
-          <Text style={stylesProfiles.value}>
-            {`Provincia: ${resultado.provincia}\nLocalidad: ${resultado.localidad}\nDomicilio: ${resultado.domicilio}`}
-          </Text>
-        </>
-      ) : (
-        <Text style={stylesProfiles.error}>{error}</Text>
-      )}
+      <View style={stylesProfiles.imageContainer}>
+        <Image
+          style={stylesProfiles.image}
+          source={{ uri: '' }} // Tenemos que ver como hacer para que cargue la imagen
+        />
+      </View>
+      <Text style={stylesProfiles.label}>Nombre:</Text>
+      <Text style={stylesProfiles.value}>{profileData.nombre}</Text>
+      <Text style={stylesProfiles.label}>Apellido:</Text>
+      <Text style={stylesProfiles.value}>{profileData.apellido}</Text>
+      <Text style={stylesProfiles.label}>Fecha de Nacimiento:</Text>
+      <Text style={stylesProfiles.value}>{profileData.fechaNacimiento}</Text>
+      <Text style={stylesProfiles.label}>Cobertura Social:</Text>
+      <Text style={stylesProfiles.value}>{profileData.cobertura?.nombreObraSocial || 'No disponible'}</Text>
     </View>
   );
 };
 
-// Exporta la pantalla
+const stylesProfiles = StyleSheet.create({
+  imageContainer: {
+    flex: 2,
+    backgroundColor: '#444',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10,
+    padding: 10,
+    marginBottom: 10,
+  },
+  image: {
+    width: '100%',
+    height: '100%',
+    borderRadius: 10,
+  },
+  detailsContainer: {
+    flex: 3,
+    backgroundColor: '#222',
+    padding: 15,
+    borderRadius: 10,
+  },
+  label: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#FFD700',
+    marginBottom: 5,
+  },
+  value: {
+    fontSize: 16,
+    color: '#fff',
+    marginBottom: 15,
+  },
+});
+
 export default DetailsDniScreen;

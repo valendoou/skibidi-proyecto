@@ -1,12 +1,9 @@
-// Importa los módulos necesarios
 import React, { useState } from 'react';
 import { View, TextInput, Button, StyleSheet } from 'react-native';
 
 // Pantalla para ingresar DNI
 const InputDniScreen = ({ navigation }) => {
   const [dni, setDni] = useState('');
-  const [usuario, setUsuario] = useState('');
-  const [clave, setClave] = useState('');
 
   const handleNext = () => {
     navigation.navigate('Details', { dni, usuario, clave });
@@ -21,20 +18,7 @@ const InputDniScreen = ({ navigation }) => {
         onChangeText={setDni}
         keyboardType="numeric"
       />
-      <TextInput 
-        style={stylesProfiles.input}
-        placeholder="Usuario"
-        value={usuario}
-        onChangeText={setUsuario}
-      />
-      <TextInput 
-        style={stylesProfiles.input}
-        placeholder="Clave"
-        value={clave}
-        onChangeText={setClave}
-        secureTextEntry
-      />
-      <Button title="Obtener Datos" onPress={handleNext} />
+      <Button title="Enviar" onPress={handleNext} />
     </View>
   );
 };
