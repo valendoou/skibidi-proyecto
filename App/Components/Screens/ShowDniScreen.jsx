@@ -16,20 +16,6 @@ export default function ProfileScreen() {
 
   return (
     <View style={styles.container}>
-      {/* Barra lateral */}
-      <View style={styles.sidebar}>
-        <Text style={styles.logoText}>GOTHAM SECURITY</Text>
-        <TouchableOpacity style={styles.menuItem}>
-          <Text style={styles.menuText}>Mapa</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem}>
-          <Text style={styles.menuText}>Ayuda</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem}>
-          <Text style={styles.menuText}>Yo</Text>
-        </TouchableOpacity>
-      </View>
-
       {/* Contenido principal */}
       <View style={styles.mainContent}>
         {/* Imagen de Dni */}
@@ -57,40 +43,6 @@ export default function ProfileScreen() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'row', // División en barra lateral y contenido
-  },
-  sidebar: {
-    width: '15%', // Ancho de la barra lateral
-    backgroundColor: '#000', // Fondo oscuro para la barra lateral
-    padding: 20,
-  },
-  logoText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#FFD700', // Color del texto (dorado)
-    marginBottom: 40,
-  },
-  menuItem: {
-    paddingVertical: 10,
-    paddingHorizontal: 15,
-    backgroundColor: '#333', // Fondo de los ítems del menú
-    borderRadius: 5,
-    marginBottom: 15,
-  },
-  menuText: {
-    color: '#FFD700', // Color del texto (dorado)
-    fontSize: 16,
-  },
-  mainContent: {
-    flex: 1,
-    backgroundColor: '#333', // Fondo 
-    padding: 20,
-  }
-});
 
 const stylesProfiles = StyleSheet.create({
   imageContainer: {

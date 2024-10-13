@@ -4,35 +4,6 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-nati
 export default function HelpScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      
-      {/* Barra lateral */}
-      <View style={styles.sidebar}>
-        <Text style={styles.sidebarTitle}>GOTHAM SECURITY</Text>
-
-        {/* Botón Mapa */}
-        <TouchableOpacity
-          style={styles.sidebarItem}
-          onPress={() => navigation.navigate('Mapa')} // Navegar a Mapa
-        >
-          <Text style={styles.sidebarItemText}>Mapa</Text>
-        </TouchableOpacity>
-
-        {/* Botón Ayuda */}
-        <TouchableOpacity
-          style={styles.sidebarItem}
-          onPress={() => navigation.navigate('Ayuda')} // Navegar a Ayuda
-        >
-          <Text style={styles.sidebarItemText}>Ayuda</Text>
-        </TouchableOpacity>
-
-        {/* Botón Yo */}
-        <TouchableOpacity
-          style={styles.sidebarItem}
-          onPress={() => navigation.navigate('Yo')} // Navegar a Yo
-        >
-          <Text style={styles.sidebarItemText}>Yo</Text>
-        </TouchableOpacity>
-      </View>
 
       {/* Contenido principal */}
       <ScrollView style={styles.mainContent}>
