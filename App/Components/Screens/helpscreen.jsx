@@ -4,42 +4,13 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-nati
 export default function HelpScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      
-      {/* Barra lateral */}
-      <View style={styles.sidebar}>
-        <Text style={styles.sidebarTitle}>GOTHAM SECURITY</Text>
-
-        {/* Botón Mapa */}
-        <TouchableOpacity
-          style={styles.sidebarItem}
-          onPress={() => navigation.navigate('Mapa')} // Navegar a Mapa
-        >
-          <Text style={styles.sidebarItemText}>Mapa</Text>
-        </TouchableOpacity>
-
-        {/* Botón Ayuda */}
-        <TouchableOpacity
-          style={styles.sidebarItem}
-          onPress={() => navigation.navigate('Ayuda')} // Navegar a Ayuda
-        >
-          <Text style={styles.sidebarItemText}>Ayuda</Text>
-        </TouchableOpacity>
-
-        {/* Botón Yo */}
-        <TouchableOpacity
-          style={styles.sidebarItem}
-          onPress={() => navigation.navigate('Yo')} // Navegar a Yo
-        >
-          <Text style={styles.sidebarItemText}>Yo</Text>
-        </TouchableOpacity>
-      </View>
 
       {/* Contenido principal */}
       <ScrollView style={styles.mainContent}>
         <View style={styles.infoSection}>
           <Text style={styles.title}>¿Cómo usar la aplicación?</Text>
           <Text style={styles.text}>
-            Cuando te enfrentas a una situación en la que tu seguridad está comprometida como un intento de robo, acoso, agresión o cualquier otra amenaza—, simplemente presiona el botón de pánico. Al hacerlo, la aplicación:
+            Cuando te enfrentas a una situación en la que tu seguridad está comprometida como un intento de robo, acoso, agresión o cualquier otra amenaza , simplemente presiona el botón de pánico. Al hacerlo, la aplicación:
             Envía una alerta instantánea a la policía local: La aplicación está conectada directamente con los servicios de emergencia, enviando una señal de alerta con tu ubicación en tiempo real. Esto asegura que las autoridades sepan exactamente dónde te encuentras y puedan intervenir de inmediato.
           </Text>
 
@@ -67,7 +38,7 @@ const styles = StyleSheet.create({
   
   // Estilos para la barra lateral
   sidebar: {
-    width: '25%', // Ocupa el 25% del ancho de la pantalla
+    width: '15%', // Ocupa el 25% del ancho de la pantalla
     backgroundColor: '#000',
     padding: 20,
   },
