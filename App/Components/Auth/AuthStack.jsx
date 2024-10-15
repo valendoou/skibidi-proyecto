@@ -1,5 +1,5 @@
 import AuthScreen from "./AuthScreen";
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const Stack = createNativeStackNavigator();
 const AuthStack = ({ email, setEmail, password, setPassword, isLogin, setIsLogin, handleAuthentication }) => {

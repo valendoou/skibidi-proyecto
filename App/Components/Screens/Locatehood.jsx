@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+/*import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 
 const App = () => {
@@ -26,7 +26,7 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      {/* Menú lateral */}
+      {/* Menú lateral }
       <View style={styles.sidebar}>
         <TouchableOpacity style={styles.menuToggle} onPress={toggleMenu}>
           <Text style={styles.menuText}>Menu</Text>
@@ -50,9 +50,9 @@ const App = () => {
         )}
       </View>
 
-      {/* Área principal */}
+      {/* Área principal }
       <View style={styles.mainContent}>
-        {/* Buscador */}
+        {/* Buscador }
         <View style={styles.searchBar}>
           <TextInput
             style={styles.searchInput}
@@ -63,7 +63,7 @@ const App = () => {
           />
         </View>
 
-        {/* Bloques de barrios filtrados */}
+        {/* Bloques de barrios filtrados }
         {filteredBarrios.map((barrio) => (
           <TouchableOpacity key={barrio} style={styles.barrio} onPress={() => handleBarrioPress(barrio)}>
             <Text style={styles.barrioName}>{barrio}</Text>
@@ -145,4 +145,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default App;*/

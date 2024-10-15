@@ -1,20 +1,9 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-
 import React, { useState, useEffect } from 'react';
-import { View, Text } from 'react-native';
 import { initializeApp } from '@firebase/app';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from '@firebase/auth';
 import { NavigationContainer } from '@react-navigation/native';
+import AuthStack from './App/Components/Auth/AuthStack';
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyC-JFWealDeRH8vC1HiI_6WshshvQFlmQ4",
@@ -27,7 +16,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-export default app = () => {
+const App = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [user, setUser] = useState(null);
@@ -68,7 +57,7 @@ export default app = () => {
 
   return (
     <NavigationContainer>
-      /{user ? (
+      {user ? (
         <AuthenticatedScreen handleSignOut={handleSignOut} />
       ) : (
         <AuthStack
@@ -83,4 +72,6 @@ export default app = () => {
       )}
     </NavigationContainer>
   );
-}
+};
+
+export default App;

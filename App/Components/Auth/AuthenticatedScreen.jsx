@@ -1,13 +1,12 @@
 import 'react-native-gesture-handler';
-import CustomDrawer from './customDrawer';
+import CustomDrawer from './CustomDrawer';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import HomeScreen from './Screen/Home';
-import OptionScreen from './Screen/Option';
-import AboutScreen from './Screen/About';
 import { NavigationContainer } from '@react-navigation/native';
 import Fontisto from '@expo/vector-icons/Fontisto';
 import Octicons from '@expo/vector-icons/Octicons';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import ProfileScreen from '../Screens/ProfileScreen';
+import HelpScreen from '../Screens/HelpScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -27,17 +26,17 @@ export default function AuthenticatedScreen() {
           drawerActiveTintColor: '#000000',
           drawerInactiveBackgroundColor: '#fff441',
           drawerInactiveTintColor: '#424949' }}>
-        <Drawer.Screen name="Map" component={HomeScreen} options={{
+        <Drawer.Screen name="Map" component={LocatedHood} options={{
           drawerIcon: ({color}) => (
             <Fontisto name="map" size={24} color={color} />
           )
         }} />
-        <Drawer.Screen name="Ayuda" component={OptionScreen} options={{
+        <Drawer.Screen name="Ayuda" component={HelpScreen} options={{
           drawerIcon: ({color}) => (
             <Octicons name="info" size={24} color={color} />
           )
         }} />
-        <Drawer.Screen name="Perfil" component={AboutScreen} options={{
+        <Drawer.Screen name="Perfil" component={ProfileScreen} options={{
           drawerIcon: ({color}) => (
             <Ionicons name="person-outline" size={24} color={color} />
           )
