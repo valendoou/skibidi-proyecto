@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, TextInput, Button, StyleSheet } from 'react-native';
 
 // Pantalla para ingresar DNI
-const InputDniScreen = ({ navigation }) => {
+const EnterDniScreen = ({ navigation }) => {
   const [dni, setDni] = useState('');
 
   const handleNext = () => {
