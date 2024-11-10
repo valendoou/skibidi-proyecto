@@ -2,7 +2,7 @@ import { Text, View } from "react-native";
 import ReportInfoBar from "./ReportInfoBar";
 
 
-const ReportInfoBar = () => {
+const ReportsSceen = () => {
   return (
     <View>
       <ReportInfoBar ></ReportInfoBar>

@@ -2,7 +2,7 @@ import * as React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 
-export default function App() {
+export default function HomeScreen() {
     const [origin, setOrigin] = React.useState({
         latitude: -38.95163481696924,
         longitude: -68.05911670044216,

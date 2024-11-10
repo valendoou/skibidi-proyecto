@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { initializeApp } from '@firebase/app';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from '@firebase/auth';
+import { getAuth, onAuthStateChanged, signOut } from '@firebase/auth';
 import { NavigationContainer } from '@react-navigation/native';
 import AuthStack from './App/Components/Auth/AuthStack';
-
+import AuthenticatedScreen from './App/Components/Auth/AuthenticatedScreen';
+import handleAuthentication from './App/Components/Auth/HandleAuthentication';
+import handleSignOut from './App/Components/Auth/HandleSingOut';
 
 const firebaseConfig = {
   apiKey: "AIzaSyC-JFWealDeRH8vC1HiI_6WshshvQFlmQ4",
@@ -30,30 +32,6 @@ const App = () => {
 
     return () => unsubscribe();
   }, [auth]);
-
-  const handleAuthentication = async () => {
-    try {
-      if (user) {
-        await signOut(auth);
-      } else {
-        if (isLogin) {
-          await signInWithEmailAndPassword(auth, email, password);
-        } else {
-          await createUserWithEmailAndPassword(auth, email, password);
-        }
-      }
-    } catch (error) {
-      console.error('Authentication error:', error.message);
-    }
-  };
-
-  const handleSignOut = async () => {
-    try {
-      await signOut(auth);
-    } catch (error) {
-      console.error('Sign-out error:', error.message);
-    }
-  };
 
   return (
     <NavigationContainer>

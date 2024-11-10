@@ -6,7 +6,7 @@ export default function ReportInfoBar(props){
             <TouchableOpacity style={styles.container}>
 
                 <View style={styles.picCont}>
-                    <Image source={require('../assets/McLovin.jpg')} style={styles.profilePic}/>
+                    <Image source={require('/Users/santi/skibidi-proyecto/assets/McLovin.jpg')} style={styles.profilePic}/>
                 </View>
 
                 <View style={styles.description}>
