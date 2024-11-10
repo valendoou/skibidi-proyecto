@@ -1,37 +1,45 @@
-/*import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet } from 'react-native';
 
 const App = () => {
+  // Estado para manejar el barrio seleccionado
   const [selectedBarrio, setSelectedBarrio] = useState(null);
+  
+  // Estado para controlar si el menú lateral es visible
   const [menuVisible, setMenuVisible] = useState(false);
-  const [searchText, setSearchText] = useState(''); // Estado para el texto de búsqueda
+  
+  // Estado para el texto de búsqueda
+  const [searchText, setSearchText] = useState('');
 
-  const barrios = ['Barrio A', 'Barrio B', 'Barrio C', 'Barrio D']; // Lista de barrios
+  // Lista de barrios disponibles
+  const barrios = ['Barrio A', 'Barrio B', 'Barrio C', 'Barrio D'];
 
+  // Función para manejar la selección de un barrio
   const handleBarrioPress = (barrio) => {
-    if (selectedBarrio === barrio) {
-      setSelectedBarrio(null);
-    } else {
-      setSelectedBarrio(barrio);
-    }
+    // Si el barrio ya está seleccionado, lo deselecciona
+    setSelectedBarrio(selectedBarrio === barrio ? null : barrio);
   };
 
+  // Función para alternar la visibilidad del menú
   const toggleMenu = () => {
     setMenuVisible(!menuVisible);
   };
 
+  // Filtra los barrios según el texto de búsqueda
   const filteredBarrios = barrios.filter(barrio =>
     barrio.toLowerCase().includes(searchText.toLowerCase())
-  ); // Filtrar barrios según el texto de búsqueda
+  );
 
   return (
     <View style={styles.container}>
-      {/* Menú lateral }
+      {/* Barra lateral */}
       <View style={styles.sidebar}>
+        {/* Botón para abrir/cerrar el menú */}
         <TouchableOpacity style={styles.menuToggle} onPress={toggleMenu}>
           <Text style={styles.menuText}>Menu</Text>
         </TouchableOpacity>
 
+        {/* Menú lateral que se muestra si `menuVisible` es verdadero */}
         {menuVisible && (
           <>
             <TouchableOpacity style={styles.menuItem} onPress={() => Alert.alert('Has seleccionado: Item 1')}>
@@ -50,23 +58,25 @@ const App = () => {
         )}
       </View>
 
-      {/* Área principal }
+      {/* Área principal de contenido */}
       <View style={styles.mainContent}>
-        {/* Buscador }
+        {/* Barra de búsqueda */}
         <View style={styles.searchBar}>
           <TextInput
             style={styles.searchInput}
             placeholder="Buscador"
             placeholderTextColor="#FFD700"
-            value={searchText}
-            onChangeText={setSearchText} // Actualizar el estado del texto de búsqueda
+            value={searchText}                 // Texto de búsqueda actual
+            onChangeText={setSearchText}        // Función para actualizar el texto de búsqueda
           />
         </View>
 
-        {/* Bloques de barrios filtrados }
+        {/* Lista de barrios filtrados según el texto de búsqueda */}
         {filteredBarrios.map((barrio) => (
           <TouchableOpacity key={barrio} style={styles.barrio} onPress={() => handleBarrioPress(barrio)}>
             <Text style={styles.barrioName}>{barrio}</Text>
+            
+            {/* Si el barrio está seleccionado, muestra estadísticas */}
             {selectedBarrio === barrio && (
               <View style={styles.statsSection}>
                 <Text style={styles.stats}>Estadísticas de {barrio}</Text>
@@ -81,68 +91,68 @@ const App = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    flexDirection: 'row', // División en barra lateral y contenido
+    flex: 1,                              // Ocupa toda la pantalla
+    flexDirection: 'row',                 // Divide la pantalla en fila (barra lateral y contenido)
   },
   sidebar: {
-    width: '25%', // Ancho de la barra lateral
-    backgroundColor: '#000', // Fondo oscuro para la barra lateral
+    width: '25%',                         // Ancho de la barra lateral
+    backgroundColor: '#000',              // Fondo oscuro
     padding: 20,
   },
   menuToggle: {
     paddingVertical: 10,
     paddingHorizontal: 15,
-    backgroundColor: '#333', // Fondo del botón de toggle
+    backgroundColor: '#333',              // Fondo gris oscuro del botón
     borderRadius: 5,
     marginBottom: 20,
   },
   menuText: {
-    color: '#FFD700', // Color del texto (dorado)
+    color: '#FFD700',                     // Color dorado del texto
     fontSize: 16,
   },
   menuItem: {
     paddingVertical: 10,
     paddingHorizontal: 15,
-    backgroundColor: '#333', // Fondo de los ítems del menú
+    backgroundColor: '#333',              // Fondo gris oscuro de los ítems del menú
     borderRadius: 5,
     marginBottom: 15,
   },
   mainContent: {
-    flex: 1,
-    backgroundColor: '#333', // Fondo
+    flex: 1,                              // Ocupa el espacio restante
+    backgroundColor: '#333',              // Fondo gris oscuro
     padding: 20,
   },
   searchBar: {
-    marginBottom: 20,
+    marginBottom: 20,                     // Separación inferior de la barra de búsqueda
   },
   searchInput: {
     borderWidth: 1,
-    borderColor: '#FFD700', // Borde dorado
+    borderColor: '#FFD700',               // Borde dorado
     padding: 10,
     borderRadius: 5,
-    color: '#FFD700', // Texto dorado
+    color: '#FFD700',                     // Texto dorado
   },
   barrio: {
     marginBottom: 20,
     padding: 15,
-    backgroundColor: '#444', // Fondo más oscuro para los barrios
+    backgroundColor: '#444',              // Fondo más oscuro para los barrios
     borderRadius: 5,
   },
   barrioName: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#FFD700', // Texto dorado
+    color: '#FFD700',                     // Texto dorado para los nombres de barrios
   },
   statsSection: {
-    marginTop: 10,
+    marginTop: 10,                        // Espacio arriba de las estadísticas
     padding: 10,
-    backgroundColor: '#555', // Fondo para las estadísticas
+    backgroundColor: '#555',              // Fondo de las estadísticas
     borderRadius: 5,
   },
   stats: {
     fontSize: 16,
-    color: '#FFD700', // Texto de estadísticas dorado
+    color: '#FFD700',                     // Texto dorado de las estadísticas
   },
 });
 
-export default App;*/
+export default App;
