@@ -1,10 +1,10 @@
 from pyparrot.Minidrone import Mambo
 import time
 
-# Inicializa el dron Mateo Quintana 6° 1°
+# Inicia el dron Mateo Quintana 6° 1°
 mambo = Mambo(533198, use_wifi=True)
 
-# Conectar al dron
+# Conecta al dron
 success = mambo.connect(num_retries=3)
 if success:
     print("Conectado al dron")
@@ -13,18 +13,18 @@ else:
     exit()
 
 try:
-    # Despegar
+    # Realizando despliegue
     print("Despegando...")
     mambo.takeoff() 
-    time.sleep(5)  # Mantiene el dron en el aire por 5 segundos
+    time.sleep(5)  # Eleva el dron al aire durante 5 segundos
 
-    # Mover el dron hacia adelante
+    # Mueve el dron hacia delante :P
     print("Moviendo hacia adelante...")
     mambo.fly_direct(roll=0, pitch=50, yaw=0, vertical_movement=0, duration=2)  # Reduce el pitch
 
-    time.sleep(3)  # Espera un momento antes de aterrizar
+    time.sleep(3)  # Aguanta 3 segundos en el aire antes de aterrizar
 
-    # Aterrizar Mateo Quintana 6° 1°
+    # Aterrizado Mateo Quintana 6° 1°
     print("Aterrizando...")
     mambo.land()
 
